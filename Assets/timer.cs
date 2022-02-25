@@ -12,14 +12,9 @@ public class timer : MonoBehaviour
     public Text lastLapText;
     public Text currentLapText;
 
+    public float totalTime;
+
     bool timerActive;
-
-    private void Start()
-    {
-
-        lastLapText.text = PlayerPrefs.GetString("lastLap");
-
-    }
 
     public void timerStart() {
 
@@ -38,9 +33,7 @@ public class timer : MonoBehaviour
         if (timerActive)
         {
 
-            lastLap = Mathf.Round((Time.time - timeStarted) * 100.0f) * 0.01f;
-            lastLapText.text = lastLap.ToString();
-            PlayerPrefs.SetString("lastLap", lastLap.ToString());
+            totalTime += Time.time - timeStarted;
             timerActive = false;
 
         }
@@ -52,15 +45,17 @@ public class timer : MonoBehaviour
 
         if (timerActive)
         {
-
-            currentLapText.text = (Mathf.Round((Time.time - timeStarted) * 100.0f) * 0.01f).ToString();
+            
+            currentLapText.text = "Current Lap: " + (Mathf.FloorToInt(Time.time - timeStarted) / 60).ToString() + ":" + Mathf.Repeat(Time.time - timeStarted, 60).ToString("0#.00");
+            lastLapText.text = "Total Time: " + (Mathf.FloorToInt(totalTime + Time.time - timeStarted) / 60).ToString() + ":" + Mathf.Repeat(totalTime + Time.time - timeStarted, 60).ToString("0#.00");
 
 
         }
 
         else {
 
-            currentLapText.text = "not active";
+            currentLapText.text = "Current Lap: ";
+            lastLapText.text = "Total Time: ";
 
 
         }
