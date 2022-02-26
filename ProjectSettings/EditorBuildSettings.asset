@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenuBB.unity
+    guid: fe5c932c6b15bdc48ac523543e544f10
+  - enabled: 1
+    path: Assets/Scenes/BarnyardBlitz.unity
+    guid: f35099af32cea6740aad650e36210581
   m_configObjects: {}

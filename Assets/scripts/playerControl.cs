@@ -85,6 +85,8 @@ public class playerControl : MonoBehaviour
             thisTime.enabled = true;
             thisTime.text = "Your time: " + (Mathf.FloorToInt(yourTime) / 60).ToString() + ":" + Mathf.Repeat(yourTime, 60).ToString("0#.00");
 
+            canvas.transform.GetChild(1).gameObject.SetActive(true);
+
         }
 
 
