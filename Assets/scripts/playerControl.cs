@@ -49,7 +49,7 @@ public class playerControl : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         if (canMove) {
@@ -58,7 +58,7 @@ public class playerControl : MonoBehaviour
 
             float temp = transform.eulerAngles.y;
 
-            transform.eulerAngles = new Vector3(0, Input.GetAxis("Horizontal") + temp, 0);
+            transform.eulerAngles = new Vector3(0, Input.GetAxis("Horizontal")*turnSpeed + temp, 0);
 
         }
 
